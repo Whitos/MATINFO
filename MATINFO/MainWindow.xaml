@@ -1,0 +1,184 @@
+﻿<Window x:Class="MATINFO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:media="clr-namespace:System.Windows.Media;assembly=PresentationCore"
+        xmlns:local="clr-namespace:MATINFO"
+        Title="MATINFO"
+        MinWidth="800"
+        MinHeight="450"
+        mc:Ignorable="d"
+        ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+
+        <!--  En-tête  -->
+        <Border Padding="10" Background="#FF0D044C"/>
+        <Label Content="MATINFO" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" >
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+
+        <Button Content="Catégorie " Click="btCategorie_Click" Margin="10,72,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="121" Height="30" VerticalAlignment="Top" FontSize="16" BorderBrush="White" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Matériel " Click="btMateriel_Click" Margin="10,107,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="121" Height="30" VerticalAlignment="Top"  FontSize="16" BorderBrush="White" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        
+        <Button Content="Personnel " Click="btPersonnel_Click" Margin="10,142,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="121" Height="30" VerticalAlignment="Top" FontSize="16" BorderBrush="White" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        
+        <Button Content="Attributions " Click="btAttribution_Click" Margin="10,177,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="121" Height="30" VerticalAlignment="Top" FontSize="16" BorderBrush="White" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        
+        <Button Content="TOUT " Click="btTout_Click" Margin="10,212,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="121" Height="30" VerticalAlignment="Top" FontSize="16" BorderBrush="White" Foreground="White">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <ListView x:Name="lvGeneral" Grid.Row="1" Margin="238,60,54,120">
+
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Background" >
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="WhiteSmoke"/>
+                                <GradientStop Color="#FF2EC0DC" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.Resources>
+                <Style TargetType="GridViewColumnHeader">
+                    <Setter Property="Background" >
+                        <Setter.Value>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black"/>
+                                <GradientStop Color="#FF3561CC" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="12" />
+                </Style>
+            </ListView.Resources>
+
+            <ListView.Effect>
+                <DropShadowEffect/>
+            </ListView.Effect>
+
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nom Produit" DisplayMemberBinding="{Binding NomProduit}" Width="100"/>
+                    <GridViewColumn Header="Code Barre" DisplayMemberBinding="{Binding CodeBarre}" Width="130"/>
+                    <GridViewColumn Header="Nom Matériel" DisplayMemberBinding="{Binding NomMateriel}" Width="150"/>
+                    <GridViewColumn Header="Réf Constructeur" DisplayMemberBinding="{Binding ReferenceConstructeur}" Width="120"/>
+                    <GridViewColumn Header="Email" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Email}" Background="White" Foreground="Black"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Nom Personnel" DisplayMemberBinding="{Binding Nom}" Width="90"/>
+                    <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding Prenom}" Width="90"/>
+                    <GridViewColumn Header="Commentaire" DisplayMemberBinding="{Binding Commentaire}" Width="100"/>
+                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding DateAttribution}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button
+            x:Name="btnHome"
+            Width="50"
+            Height="50"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="btnHome_Click" Margin="10,0,0,0">
+            <Image Source="/maisonn.png" />
+        </Button>
+
+        <Button 
+            x:Name="btnSupprimer" 
+            Width="30" 
+            Height="30" 
+            HorizontalAlignment="Left" 
+            Margin="200,60,0,0" 
+            Grid.Row="1" 
+            VerticalAlignment="Top">
+            <Image Source="/delete.png"/>
+        </Button>
+
+        <Button Content="Catégorie Répertoire" Click="btnCategorieRep_Click" Margin="238,0,0,35" Grid.Row="1" HorizontalAlignment="Left" Width="165" FontSize="16" BorderBrush="White" Foreground="White" Height="30" VerticalAlignment="Bottom">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button Content="Matériel Répertoire" Click="btnMaterielRep_Click" Margin="538,0,0,35" Grid.Row="1" HorizontalAlignment="Left" Width="165" FontSize="16" BorderBrush="White" Foreground="White" Height="30" VerticalAlignment="Bottom">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button Content="Personnel Répertoire" Click="btnPersonnelRep_Click" Margin="839,0,0,35" Grid.Row="1" HorizontalAlignment="Left" Width="166" FontSize="16" BorderBrush="White" Foreground="White" Height="30" VerticalAlignment="Bottom">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF3561CC" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Window>
