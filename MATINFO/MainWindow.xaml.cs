@@ -42,8 +42,15 @@ namespace MATINFO
             lvGeneral.Items.Refresh();
 
             DataAccess accesBD = new DataAccess();
-            bool res = accesBD.OpenConnection();
-            MessageBox.Show("Résultat de la connexion : " + res);
+            accesBD.OpenConnection();
+
+            // Test de connexion à la base de données
+            //MessageBox.Show("Résultat de la connexion : " + accesBD.OpenConnection());
+
+            LesCategories = CategorieMateriel.FindAll();
+            LesMateriels = Materiel.FindAll();
+            LesPersonnels = Personnel.FindAll();
+            LesAttributions = EstAttribue.FindAll();
         }
 
         private void btCategorie_Click(object sender, RoutedEventArgs e)
