@@ -28,7 +28,6 @@ namespace MATINFO
         public ObservableCollection<CategorieMateriel> LesCategories { get; set; }
         public ObservableCollection<Materiel> LesMateriels { get; set; }
         public ObservableCollection<Personnel> LesPersonnels { get; set; }
-
         public ObservableCollection<EstAttribue> LesAttributions { get; set; }
 
         public MainWindow()
