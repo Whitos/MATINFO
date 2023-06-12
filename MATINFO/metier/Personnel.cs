@@ -4,21 +4,27 @@
  * Purpose: Definition of the Class Personnel
  ***********************************************************************/
 
+using MATINFO.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 
 public class Personnel : IDonnee
 {
     public int IDPersonnel { get; set; }
     public string Nom { get; set; }
     public string Prenom { get; set; }
-    public int EMail { get; set; }
+    public string EMail { get; set; }
 
     public List<EstAttribue> LesAttributions { get; set; }
 
-    public Personnel()
+    public Personnel(int idPersonnel, string nom, string prenom, string eMail)
     {
-        // TODO: implement
+        IDPersonnel = idPersonnel;
+        Nom = nom;
+        Prenom = prenom;
+        EMail = eMail;
     }
    
     public void Create()
@@ -26,7 +32,7 @@ public class Personnel : IDonnee
         // TODO: implement
     }
    
-    public IDonnee Read()
+    public IDonnee? Read()
     {
         // TODO: implement
         return null;
@@ -41,10 +47,21 @@ public class Personnel : IDonnee
     {
         // TODO: implement
     }
-   
-    public static List<Personnel> FindAll()
+
+    public static ObservableCollection<Personnel> FindAll()
     {
-        // TODO: implement
-        return null;
+        ObservableCollection<Personnel> lePersonnel = new ObservableCollection<Personnel>();
+        DataAccess accesBD = new DataAccess();
+        string requete = "select idpersonnel, nompersonnel, prenompersonnel, email from personnel ;";
+        DataTable datas = accesBD.GetData(requete)!;
+        if (datas != null)
+        {
+            foreach (DataRow row in datas.Rows)
+            {
+                Personnel e = new Personnel(int.Parse(row["idpersonnel"].ToString()!), (string)row["nompersonnel"], (string)row["prenompersonnel"], (string)row["email"]);
+                lePersonnel.Add(e);
+            }
+        }
+        return lePersonnel;
     }
 }

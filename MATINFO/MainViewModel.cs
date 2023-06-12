@@ -15,7 +15,6 @@ namespace MATINFO
         private ObservableCollection<Materiel> lesMateriels;
         private ObservableCollection<Personnel> lesPersonnels;
         private ObservableCollection<EstAttribue> lesAttributions;
-        private ObservableCollection<Tout> lesTouts;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -64,23 +63,12 @@ namespace MATINFO
             }
         }
 
-        public ObservableCollection<Tout> LesTouts
-        {
-            get { return lesTouts; }
-            set
-            {
-                lesTouts = value;
-                OnPropertyChanged(nameof(LesTouts));
-            }
-        }
-
         public MainViewModel()
         {
             LesCategories = new ObservableCollection<CategorieMateriel>();
             LesMateriels = new ObservableCollection<Materiel>();
             LesPersonnels = new ObservableCollection<Personnel>();
             LesAttributions = new ObservableCollection<EstAttribue>();
-            LesTouts = new ObservableCollection<Tout>();
         }
     }
 }
