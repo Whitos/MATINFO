@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
-using static MATINFO.MaterielRep;
 
 public class Materiel : IDonnee
 {
@@ -53,18 +52,18 @@ public class Materiel : IDonnee
 
     public static ObservableCollection<Materiel> FindAll()
     {
-        ObservableCollection<Materiel> lePersonnel = new ObservableCollection<Materiel>();
+        ObservableCollection<Materiel> leMateriel = new ObservableCollection<Materiel>();
         DataAccess accesBD = new DataAccess();
-        string requete = "select idmateriel, idcategoriemateriel, codebarre, nommateriel, referencemateriel from personnel ;";
+        string requete = "select idmateriel, idcategoriemateriel, codebarre, nommateriel, referencemateriel from materiel ;";
         DataTable datas = accesBD.GetData(requete)!;
         if (datas != null)
         {
             foreach (DataRow row in datas.Rows)
             {
-                Materiel e = new Materiel(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idcategoriemateriel"].ToString()!), (string)row["nompersonnel"], (string)row["prenompersonnel"], (string)row["email"]);
-                lePersonnel.Add(e);
+                Materiel e = new Materiel(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idcategoriemateriel"].ToString()!), (string)row["codebarre"], (string)row["nommateriel"], (string)row["referencemateriel"]);
+                leMateriel.Add(e);
             }
         }
-        return lePersonnel;
+        return leMateriel;
     }
 }

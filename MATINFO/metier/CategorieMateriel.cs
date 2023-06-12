@@ -4,19 +4,23 @@
  * Purpose: Definition of the Class CategorieMateriel
  ***********************************************************************/
 
+using MATINFO.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 
 public class CategorieMateriel : IDonnee
 {
     public int IDCategorieMateriel { get; set; }
-    public int Nom { get; set; }
+    public string Nom { get; set; }
 
     public List<Materiel> lesMateriels { get; set; }
 
-    public CategorieMateriel()
+    public CategorieMateriel(int idCategorieMateriel, string nom)
     {
-        // TODO: implement
+        IDCategorieMateriel = idCategorieMateriel;
+        Nom = nom;
     }
    
     public void Create()
@@ -39,11 +43,22 @@ public class CategorieMateriel : IDonnee
     {
         // TODO: implement
     }
-   
-    public static List<CategorieMateriel> FindAll()
+
+    public static ObservableCollection<CategorieMateriel> FindAll()
     {
-        // TODO: implement
-        return null;
+        ObservableCollection<CategorieMateriel> lesCategories = new ObservableCollection<CategorieMateriel>();
+        DataAccess accesBD = new DataAccess();
+        string requete = "select idcategoriemateriel, nomcategoriemateriel from categoriemateriel ;";
+        DataTable datas = accesBD.GetData(requete)!;
+        if (datas != null)
+        {
+            foreach (DataRow row in datas.Rows)
+            {
+                CategorieMateriel e = new CategorieMateriel(int.Parse(row["idcategoriemateriel"].ToString()!), (string)row["nomcategoriemateriel"]);
+                lesCategories.Add(e);
+            }
+        }
+        return lesCategories;
     }
 
     /// <pdGenerated>default getter</pdGenerated>

@@ -4,8 +4,11 @@
  * Purpose: Definition of the Class EstAttribue
  ***********************************************************************/
 
+using MATINFO.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data;
 
 public class EstAttribue : IDonnee
 {
@@ -16,9 +19,12 @@ public class EstAttribue : IDonnee
 
     public DateAttribution LesDatesAttribution { get; set; }
 
-    public EstAttribue()
+    public EstAttribue(int idMateriel, int idPersonnel, int idDateAttribution, string commentaire)
     {
-        // TODO: implement
+        IDMateriel = idMateriel;
+        IDPersonnel = idPersonnel;
+        IDDateAttribution = idDateAttribution;
+        Commentaire = commentaire;
     }
    
     public void Create()
@@ -41,10 +47,21 @@ public class EstAttribue : IDonnee
     {
         // TODO: implement
     }
-   
-    public static List<EstAttribue> FindAll()
+
+    public static ObservableCollection<EstAttribue> FindAll()
     {
-        // TODO: implement
-        return null;
+        ObservableCollection<EstAttribue> lesAttributions = new ObservableCollection<EstAttribue>();
+        DataAccess accesBD = new DataAccess();
+        string requete = "select idmateriel, idpersonnel, iddateattribution, commentaire from estattribue ;";
+        DataTable datas = accesBD.GetData(requete)!;
+        if (datas != null)
+        {
+            foreach (DataRow row in datas.Rows)
+            {
+                EstAttribue e = new EstAttribue(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idpersonnel"].ToString()!), int.Parse(row["iddateattribution"].ToString()!), (string)row["commentaire"]);
+                lesAttributions.Add(e);
+            }
+        }
+        return lesAttributions;
     }
 }

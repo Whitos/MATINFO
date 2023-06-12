@@ -67,7 +67,7 @@ namespace MATINFO
 
         private void btTout_Click(object sender, RoutedEventArgs e)
         {
-            lvGeneral.ItemsSource = viewModel.LesTouts;
+            //lvGeneral.ItemsSource = viewModel.LesTouts;
         }
 
 
