@@ -11,7 +11,7 @@ namespace MATINFO
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private ObservableCollection<Categorie> lesCategories;
+        private ObservableCollection<CategorieMateriel> lesCategories;
         private ObservableCollection<Materiel> lesMateriels;
         private ObservableCollection<Personnel> lesPersonnels;
         private ObservableCollection<Attribution> lesAttributions;
@@ -24,7 +24,7 @@ namespace MATINFO
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ObservableCollection<Categorie> LesCategories
+        public ObservableCollection<CategorieMateriel> LesCategories
         {
             get { return lesCategories; }
             set
@@ -76,7 +76,7 @@ namespace MATINFO
 
         public MainViewModel()
         {
-            LesCategories = new ObservableCollection<Categorie>();
+            LesCategories = new ObservableCollection<CategorieMateriel>();
             LesMateriels = new ObservableCollection<Materiel>();
             LesPersonnels = new ObservableCollection<Personnel>();
             LesAttributions = new ObservableCollection<Attribution>();
