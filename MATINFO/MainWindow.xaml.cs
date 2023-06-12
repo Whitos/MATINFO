@@ -30,7 +30,7 @@ namespace MATINFO
         public ObservableCollection<Materiel> LesMateriels { get; set; }
         public ObservableCollection<Personnel> LesPersonnels { get; set; }
 
-        public ObservableCollection<Attribution> LesAttributions { get; set; }
+        public ObservableCollection<EstAttribue> LesAttributions { get; set; }
 
         public MainWindow()
         {
@@ -69,19 +69,7 @@ namespace MATINFO
                 Nom = nom;
                 Prenom = prenom;
             }
-        }
-
-        public class Attribution
-        {
-            public DateTime DateAttribution { get; set; }
-            public string Commentaire { get; set; }
-
-            public Attribution(DateTime dateattribution, string commentaire)
-            {
-                DateAttribution = new DateTime();
-                Commentaire = commentaire;
-            }
-        }       
+        }  
 
         private void btCategorie_Click(object sender, RoutedEventArgs e)
         {
