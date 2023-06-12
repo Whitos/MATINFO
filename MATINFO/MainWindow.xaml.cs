@@ -39,7 +39,6 @@ namespace MATINFO
             viewModel.LesCategories = lesCategories();
             viewModel.LesMateriels = lesMateriels();
             viewModel.LesPersonnels = lesPersonnels();
-            viewModel.LesTouts = lesTouts();
 
             lvGeneral.Items.Refresh();
 
