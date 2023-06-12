@@ -127,9 +127,9 @@ namespace MATINFO
             return LesPersonnels;
         }
 
-        private ObservableCollection<Attribution> lesAttributions()
+        private ObservableCollection<EstAttribue> lesAttributions()
         {
-            LesAttributions = new ObservableCollection<Attribution>();
+            LesAttributions = new ObservableCollection<EstAttribue>();
             //LesAttributions.Add(new Attribution(new DateTime(2020,02,20),"A signé une décharge admin"));
             //LesAttributions.Add(new Attribution(new DateTime(2090, 11, 06), "A signé une décharge admin"));
             //LesAttributions.Add(new Attribution(new DateTime(2017, 10, 17), "A signé une décharge admin"));
