@@ -14,7 +14,7 @@ namespace MATINFO
         private ObservableCollection<CategorieMateriel> lesCategories;
         private ObservableCollection<Materiel> lesMateriels;
         private ObservableCollection<Personnel> lesPersonnels;
-        private ObservableCollection<Attribution> lesAttributions;
+        private ObservableCollection<EstAttribue> lesAttributions;
         private ObservableCollection<Tout> lesTouts;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -54,7 +54,7 @@ namespace MATINFO
             }
         }
 
-        public ObservableCollection<Attribution> LesAttributions
+        public ObservableCollection<EstAttribue> LesAttributions
         {
             get { return lesAttributions; }
             set
@@ -79,7 +79,7 @@ namespace MATINFO
             LesCategories = new ObservableCollection<CategorieMateriel>();
             LesMateriels = new ObservableCollection<Materiel>();
             LesPersonnels = new ObservableCollection<Personnel>();
-            LesAttributions = new ObservableCollection<Attribution>();
+            LesAttributions = new ObservableCollection<EstAttribue>();
             LesTouts = new ObservableCollection<Tout>();
         }
     }
