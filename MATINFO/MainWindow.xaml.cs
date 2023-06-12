@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MATINFO.Model;
 
 namespace MATINFO
 {
@@ -24,7 +25,6 @@ namespace MATINFO
     {
         private MainViewModel viewModel;
 
-        public ObservableCollection<Tout> LesTouts { get; set; }
         public ObservableCollection<CategorieMateriel> LesCategories { get; set; }
         public ObservableCollection<Materiel> LesMateriels { get; set; }
         public ObservableCollection<Personnel> LesPersonnels { get; set; }
@@ -47,28 +47,6 @@ namespace MATINFO
             bool res = accesBD.OpenConnection();
             MessageBox.Show("Résultat de la connexion : " + res);
         }
-
-        public class Tout
-        {
-            public string NomProduit { get; set; }
-            public string CodeBarre { get; set; }
-            public string NomMateriel { get; set; }
-            public string ReferenceConstructeur { get; set; }
-            public string Email { get; set; }
-            public string Nom { get; set; }
-            public string Prenom { get; set; }
-
-            public Tout(string nomP, string codeBarre, string nomM, string referenceConstructeur, string email, string nom, string prenom)
-            {
-                NomProduit = nomP;
-                CodeBarre = codeBarre;
-                NomMateriel = nomM;
-                ReferenceConstructeur = referenceConstructeur;
-                Email = email;
-                Nom = nom;
-                Prenom = prenom;
-            }
-        }  
 
         private void btCategorie_Click(object sender, RoutedEventArgs e)
         {
@@ -134,28 +112,6 @@ namespace MATINFO
             //LesAttributions.Add(new Attribution(new DateTime(2017, 10, 17), "A signé une décharge admin"));
 
             return LesAttributions;
-        }
-
-
-        private ObservableCollection<Tout> lesTouts()
-        {
-            LesTouts = new ObservableCollection<Tout>();
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesTouts.Add(new Tout("PC Portable", "ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF", "nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-
-            return LesTouts;
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
