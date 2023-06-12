@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tuto_BD_WPF.Model
+namespace MATINFO.Model
 {
     public class ApplicationData
     {

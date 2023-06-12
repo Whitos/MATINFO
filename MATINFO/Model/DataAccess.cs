@@ -12,7 +12,7 @@ using Npgsql;
 //GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO matinfo;
 //GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO matinfo;
 
-namespace Tuto_BD_WPF.Model /// A MODIFIER SI VOTRE PROJET A UN AUTRE NOM
+namespace MATINFO.Model
 {
     public class DataAccess
     {
