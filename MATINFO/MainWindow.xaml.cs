@@ -77,7 +77,6 @@ namespace MATINFO
             //lvGeneral.ItemsSource = viewModel.LesTouts;
         }
 
-
         private ObservableCollection<CategorieMateriel> lesCategories()
         {
             LesCategories = new ObservableCollection<CategorieMateriel>();
