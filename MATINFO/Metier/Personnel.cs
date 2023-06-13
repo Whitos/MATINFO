@@ -4,7 +4,6 @@
  * Purpose: Definition of the Class Personnel
  ***********************************************************************/
 
-using MATINFO.Metier;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
