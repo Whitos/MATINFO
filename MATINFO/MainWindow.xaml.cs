@@ -23,8 +23,6 @@ namespace MATINFO
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainViewModel viewModel;
-
         public ObservableCollection<CategorieMateriel> LesCategories { get; set; }
         public ObservableCollection<Materiel> LesMateriels { get; set; }
         public ObservableCollection<Personnel> LesPersonnels { get; set; }
@@ -33,11 +31,6 @@ namespace MATINFO
         public MainWindow()
         {
             InitializeComponent();
-
-            viewModel = new MainViewModel();
-            viewModel.LesCategories = CategorieMateriel.FindAll();
-            viewModel.LesMateriels = Materiel.FindAll();
-            viewModel.LesPersonnels = Personnel.FindAll();
 
             lvGeneral.Items.Refresh();
 
@@ -51,30 +44,6 @@ namespace MATINFO
             LesMateriels = Materiel.FindAll();
             LesPersonnels = Personnel.FindAll();
             LesAttributions = EstAttribue.FindAll();
-        }
-
-        private void btCategorie_Click(object sender, RoutedEventArgs e)
-        {
-            lvGeneral.ItemsSource = viewModel.LesCategories;
-        }
-
-        private void btMateriel_Click(object sender, RoutedEventArgs e)
-        {
-            lvGeneral.ItemsSource = viewModel.LesMateriels;
-        }
-
-        private void btPersonnel_Click(object sender, RoutedEventArgs e)
-        {
-            lvGeneral.ItemsSource = viewModel.LesPersonnels;
-        }
-        private void btAttribution_Click(object sender, RoutedEventArgs e)
-        {
-            lvGeneral.ItemsSource = viewModel.LesAttributions;
-        }
-
-        private void btTout_Click(object sender, RoutedEventArgs e)
-        {
-            //lvGeneral.ItemsSource = viewModel.LesTouts;
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
