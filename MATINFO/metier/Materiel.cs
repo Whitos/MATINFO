@@ -55,7 +55,7 @@ namespace MATINFO.Metier
         public static ObservableCollection<Materiel> FindAll()
         {
             ObservableCollection<Materiel> leMateriel = new ObservableCollection<Materiel>();
-            DataAccess accesBD = new DataAccess();
+            AccesDonnees accesBD = new AccesDonnees();
             string requete = "select idmateriel, idcategorie, codebarreinventaire, nommateriel, referenceconstructeurmateriel from materiel ;";
             DataTable datas = accesBD.GetData(requete)!;
             if (datas != null)

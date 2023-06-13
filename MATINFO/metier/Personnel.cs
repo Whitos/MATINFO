@@ -53,7 +53,7 @@ namespace MATINFO.Metier
         public static ObservableCollection<Personnel> FindAll()
         {
             ObservableCollection<Personnel> lePersonnel = new ObservableCollection<Personnel>();
-            DataAccess accesBD = new DataAccess();
+            AccesDonnees accesBD = new AccesDonnees();
             string requete = "select idpersonnel, nompersonnel, prenompersonnel, emailpersonnel from personnel ;";
             DataTable datas = accesBD.GetData(requete)!;
             if (datas != null)

@@ -50,7 +50,7 @@ namespace MATINFO.Metier
         public static ObservableCollection<EstAttribue> FindAll()
         {
             ObservableCollection<EstAttribue> lesAttributions = new ObservableCollection<EstAttribue>();
-            DataAccess accesBD = new DataAccess();
+            AccesDonnees accesBD = new AccesDonnees();
             string requete = "select idmateriel, idpersonnel, dateattribution, commentaireattribution from est_attribue ;";
             DataTable datas = accesBD.GetData(requete)!;
             if (datas != null)
