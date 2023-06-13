@@ -34,7 +34,7 @@ namespace MATINFO
 
             lvGeneral.Items.Refresh();
 
-            DataAccess accesBD = new DataAccess();
+            AccesDonnees accesBD = new AccesDonnees();
             accesBD.OpenConnection();
 
             // Test de connexion à la base de données

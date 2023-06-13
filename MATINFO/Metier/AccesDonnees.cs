@@ -14,7 +14,7 @@ using Npgsql;
 
 namespace MATINFO.Metier
 {
-    public class DataAccess
+    public class AccesDonnees
     {
         public NpgsqlConnection? NpgSQLConnect { get; set; }
 
