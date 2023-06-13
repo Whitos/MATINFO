@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MATINFO.Model
+namespace MATINFO.Metier
 {
     public class ApplicationData
     {

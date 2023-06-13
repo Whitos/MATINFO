@@ -12,12 +12,12 @@ using Npgsql;
 //GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO matinfo;
 //GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO matinfo;
 
-namespace MATINFO.Model
+namespace MATINFO.Metier
 {
     public class DataAccess
     {
         public NpgsqlConnection? NpgSQLConnect { get; set; }
-      
+
         /// <summary>
         /// Connexion à la base de données
         /// </summary>
@@ -31,7 +31,7 @@ namespace MATINFO.Model
                     ConnectionString = "Server=srv-peda-new;port=5433;Database=projets_wpf;Search Path=bd_matinfo;uid=cordellp;password=HADJjx;"
                 };
                 NpgSQLConnect.Open();
-                
+
                 return NpgSQLConnect.State.Equals(ConnectionState.Open);
             }
             catch (Exception e)
@@ -40,19 +40,19 @@ namespace MATINFO.Model
                 return false;
             }
         }
-      
+
         /// <summary>
         /// Déconnexion de la base de données
         /// </summary>
         private void CloseConnection()
         {
-            if (NpgSQLConnect!=null)
-                if (NpgSQLConnect.State.Equals(System.Data.ConnectionState.Open))
+            if (NpgSQLConnect != null)
+                if (NpgSQLConnect.State.Equals(ConnectionState.Open))
                 {
                     NpgSQLConnect.Close();
                 }
         }
-      
+
         /// <summary>
         /// Accès à des données en lecture
         /// </summary>
@@ -73,7 +73,7 @@ namespace MATINFO.Model
                     DataTable dataTable = new DataTable();
                     npgsqlAdapter.Fill(dataTable);
                     CloseConnection();
-                    
+
                     return dataTable;
                 }
                 else
@@ -88,7 +88,7 @@ namespace MATINFO.Model
                 return null;
             }
         }
-      
+
         /// <summary>
         /// Permet d'insérer, supprimer ou modifier des données
         /// </summary>
@@ -108,7 +108,7 @@ namespace MATINFO.Model
                 else
                     return 0;
             }
-            catch 
+            catch
             {
                 CloseConnection();
                 return 0;

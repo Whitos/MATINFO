@@ -6,14 +6,17 @@
 
 using System.Collections.ObjectModel;
 
-public interface IDonnee
+namespace MATINFO.Metier
 {
-    void Create();
-    IDonnee Read();
-    void Update();
-    void Delete();
+    public interface IDonnee
+    {
+        void Create();
+        IDonnee Read();
+        void Update();
+        void Delete();
 
-    //ObservableCollection<T> FindAll();
+        //ObservableCollection<T> FindAll();
 
-    //ObservableCollection<T> FindBySelection(string criteres);
+        //ObservableCollection<T> FindBySelection(string criteres);
+    }
 }

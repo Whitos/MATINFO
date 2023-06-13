@@ -4,66 +4,69 @@
  * Purpose: Definition of the Class Materiel
  ***********************************************************************/
 
-using MATINFO.Model;
+using MATINFO.Metier;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
 
-public class Materiel : IDonnee
+namespace MATINFO.Metier
 {
-    public int IDMateriel { get; set; }
-    public int IDCategorieMateriel { get; set; }
-    public string CodeBarre { get; set; }
-    public string Nom { get; set; }
-    public string Reference { get; set; }
+    public class Materiel : IDonnee
+    {
+        public int IDMateriel { get; set; }
+        public int IDCategorieMateriel { get; set; }
+        public string CodeBarre { get; set; }
+        public string Nom { get; set; }
+        public string Reference { get; set; }
 
-    public List<EstAttribue> EstAttribue { get; set; }
+        public List<EstAttribue> EstAttribue { get; set; }
 
-    public Materiel(int idMateriel, int idCategorieMateriel, string codeBarre, string nom, string reference)
-    {
-        IDMateriel = idMateriel;
-        IDCategorieMateriel = idCategorieMateriel;
-        CodeBarre = codeBarre;
-        Nom = nom;
-        Reference = reference;
-    }
-   
-    public void Create()
-    {
-        // TODO: implement
-    }
-   
-    public IDonnee Read()
-    {
-        // TODO: implement
-        return null;
-    }
-   
-    public void Update()
-    {
-        // TODO: implement
-    }
-   
-    public void Delete()
-    {
-        // TODO: implement
-    }
-
-    public static ObservableCollection<Materiel> FindAll()
-    {
-        ObservableCollection<Materiel> leMateriel = new ObservableCollection<Materiel>();
-        DataAccess accesBD = new DataAccess();
-        string requete = "select idmateriel, idcategorie, codebarreinventaire, nommateriel, referenceconstructeurmateriel from materiel ;";
-        DataTable datas = accesBD.GetData(requete)!;
-        if (datas != null)
+        public Materiel(int idMateriel, int idCategorieMateriel, string codeBarre, string nom, string reference)
         {
-            foreach (DataRow row in datas.Rows)
-            {
-                Materiel e = new Materiel(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idcategorie"].ToString()!), (string)row["codebarreinventaire"], (string)row["nommateriel"], (string)row["referenceconstructeurmateriel"]);
-                leMateriel.Add(e);
-            }
+            IDMateriel = idMateriel;
+            IDCategorieMateriel = idCategorieMateriel;
+            CodeBarre = codeBarre;
+            Nom = nom;
+            Reference = reference;
         }
-        return leMateriel;
+   
+        public void Create()
+        {
+            // TODO: implement
+        }
+   
+        public IDonnee Read()
+        {
+            // TODO: implement
+            return null;
+        }
+   
+        public void Update()
+        {
+            // TODO: implement
+        }
+   
+        public void Delete()
+        {
+            // TODO: implement
+        }
+
+        public static ObservableCollection<Materiel> FindAll()
+        {
+            ObservableCollection<Materiel> leMateriel = new ObservableCollection<Materiel>();
+            DataAccess accesBD = new DataAccess();
+            string requete = "select idmateriel, idcategorie, codebarreinventaire, nommateriel, referenceconstructeurmateriel from materiel ;";
+            DataTable datas = accesBD.GetData(requete)!;
+            if (datas != null)
+            {
+                foreach (DataRow row in datas.Rows)
+                {
+                    Materiel e = new Materiel(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idcategorie"].ToString()!), (string)row["codebarreinventaire"], (string)row["nommateriel"], (string)row["referenceconstructeurmateriel"]);
+                    leMateriel.Add(e);
+                }
+            }
+            return leMateriel;
+        }
     }
 }
