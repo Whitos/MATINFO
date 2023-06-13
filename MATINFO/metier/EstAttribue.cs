@@ -14,19 +14,17 @@ public class EstAttribue : IDonnee
 {
     public int IDMateriel { get; set; }
     public int IDPersonnel { get; set; }
-    public int IDDateAttribution { get; set; }
+    public DateTime DateAttribution { get; set; }
     public string Commentaire { get; set; }
 
-    public DateAttribution LesDatesAttribution { get; set; }
-
-    public EstAttribue(int idMateriel, int idPersonnel, int idDateAttribution, string commentaire)
+    public EstAttribue(int idMateriel, int idPersonnel, DateTime dateAttribution, string commentaire)
     {
         IDMateriel = idMateriel;
         IDPersonnel = idPersonnel;
-        IDDateAttribution = idDateAttribution;
+        DateAttribution = dateAttribution;
         Commentaire = commentaire;
     }
-   
+
     public void Create()
     {
         // TODO: implement
@@ -52,13 +50,13 @@ public class EstAttribue : IDonnee
     {
         ObservableCollection<EstAttribue> lesAttributions = new ObservableCollection<EstAttribue>();
         DataAccess accesBD = new DataAccess();
-        string requete = "select idmateriel, idpersonnel, iddateattribution, commentaire from estattribue ;";
+        string requete = "select idmateriel, idpersonnel, dateattribution, commentaireattribution from est_attribue ;";
         DataTable datas = accesBD.GetData(requete)!;
         if (datas != null)
         {
             foreach (DataRow row in datas.Rows)
             {
-                EstAttribue e = new EstAttribue(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idpersonnel"].ToString()!), int.Parse(row["iddateattribution"].ToString()!), (string)row["commentaire"]);
+                EstAttribue e = new EstAttribue(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idpersonnel"].ToString()!), DateTime.Parse(row["dateattribution"].ToString()!), (string)row["commentaireattribution"]);
                 lesAttributions.Add(e);
             }
         }

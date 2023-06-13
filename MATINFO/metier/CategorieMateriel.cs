@@ -48,13 +48,13 @@ public class CategorieMateriel : IDonnee
     {
         ObservableCollection<CategorieMateriel> lesCategories = new ObservableCollection<CategorieMateriel>();
         DataAccess accesBD = new DataAccess();
-        string requete = "select idcategoriemateriel, nomcategoriemateriel from categoriemateriel ;";
+        string requete = "select idcategorie, nomcategorie from categorie_materiel ;";
         DataTable datas = accesBD.GetData(requete)!;
         if (datas != null)
         {
             foreach (DataRow row in datas.Rows)
             {
-                CategorieMateriel e = new CategorieMateriel(int.Parse(row["idcategoriemateriel"].ToString()!), (string)row["nomcategoriemateriel"]);
+                CategorieMateriel e = new CategorieMateriel(int.Parse(row["idcategorie"].ToString()!), (string)row["nomcategorie"]);
                 lesCategories.Add(e);
             }
         }

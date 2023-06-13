@@ -54,13 +54,13 @@ public class Materiel : IDonnee
     {
         ObservableCollection<Materiel> leMateriel = new ObservableCollection<Materiel>();
         DataAccess accesBD = new DataAccess();
-        string requete = "select idmateriel, idcategoriemateriel, codebarre, nommateriel, referencemateriel from materiel ;";
+        string requete = "select idmateriel, idcategorie, codebarreinventaire, nommateriel, referenceconstructeurmateriel from materiel ;";
         DataTable datas = accesBD.GetData(requete)!;
         if (datas != null)
         {
             foreach (DataRow row in datas.Rows)
             {
-                Materiel e = new Materiel(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idcategoriemateriel"].ToString()!), (string)row["codebarre"], (string)row["nommateriel"], (string)row["referencemateriel"]);
+                Materiel e = new Materiel(int.Parse(row["idmateriel"].ToString()!), int.Parse(row["idcategorie"].ToString()!), (string)row["codebarreinventaire"], (string)row["nommateriel"], (string)row["referenceconstructeurmateriel"]);
                 leMateriel.Add(e);
             }
         }

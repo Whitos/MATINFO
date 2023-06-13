@@ -52,13 +52,13 @@ public class Personnel : IDonnee
     {
         ObservableCollection<Personnel> lePersonnel = new ObservableCollection<Personnel>();
         DataAccess accesBD = new DataAccess();
-        string requete = "select idpersonnel, nompersonnel, prenompersonnel, email from personnel ;";
+        string requete = "select idpersonnel, nompersonnel, prenompersonnel, emailpersonnel from personnel ;";
         DataTable datas = accesBD.GetData(requete)!;
         if (datas != null)
         {
             foreach (DataRow row in datas.Rows)
             {
-                Personnel e = new Personnel(int.Parse(row["idpersonnel"].ToString()!), (string)row["nompersonnel"], (string)row["prenompersonnel"], (string)row["email"]);
+                Personnel e = new Personnel(int.Parse(row["idpersonnel"].ToString()!), (string)row["nompersonnel"], (string)row["prenompersonnel"], (string)row["emailpersonnel"]);
                 lePersonnel.Add(e);
             }
         }

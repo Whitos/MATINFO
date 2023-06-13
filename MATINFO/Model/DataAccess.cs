@@ -28,7 +28,7 @@ namespace MATINFO.Model
             {
                 NpgSQLConnect = new NpgsqlConnection
                 {
-                    ConnectionString = "Server=srv-peda-new;port=5433;Database=projetsWPF;Search Path=Tuto_BD_WPF;uid=cordellp;password=HADJjx;"
+                    ConnectionString = "Server=srv-peda-new;port=5433;Database=projetsWPF;Search Path=BD_MATINFO;uid=cordellp;password=HADJjx;"
                 };
                 NpgSQLConnect.Open();
                 
