@@ -4,7 +4,6 @@
  * Purpose: Definition of the Class Materiel
  ***********************************************************************/
 
-using MATINFO.Metier;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

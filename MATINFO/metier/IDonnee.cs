@@ -4,8 +4,6 @@
  * Purpose: Definition of the Interface IDonnee
  ***********************************************************************/
 
-using System.Collections.ObjectModel;
-
 namespace MATINFO.Metier
 {
     public interface IDonnee
