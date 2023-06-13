@@ -28,11 +28,11 @@ namespace MATINFO.Model
             {
                 NpgSQLConnect = new NpgsqlConnection
                 {
-                    ConnectionString = "Server=srv-peda-new;port=5433;Database=projetsWPF;Search Path=BD_MATINFO;uid=cordellp;password=HADJjx;"
+                    ConnectionString = "Server=srv-peda-new;port=5433;Database=projets_wpf;Search Path=bd_matinfo;uid=cordellp;password=HADJjx;"
                 };
                 NpgSQLConnect.Open();
                 
-                return NpgSQLConnect.State.Equals(System.Data.ConnectionState.Open);
+                return NpgSQLConnect.State.Equals(ConnectionState.Open);
             }
             catch (Exception e)
             {
