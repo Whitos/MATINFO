@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:media="clr-namespace:System.Windows.Media;assembly=PresentationCore"
         xmlns:local="clr-namespace:MATINFO"
+        xmlns:metier="clr-namespace:MATINFO.Metier"
         Title="MATINFO"
         MinWidth="800"
         MinHeight="450"
