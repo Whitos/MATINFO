@@ -35,9 +35,9 @@ namespace MATINFO
             InitializeComponent();
 
             viewModel = new MainViewModel();
-            viewModel.LesCategories = lesCategories();
-            viewModel.LesMateriels = lesMateriels();
-            viewModel.LesPersonnels = lesPersonnels();
+            viewModel.LesCategories = CategorieMateriel.FindAll();
+            viewModel.LesMateriels = Materiel.FindAll();
+            viewModel.LesPersonnels = Personnel.FindAll();
 
             lvGeneral.Items.Refresh();
 
@@ -75,47 +75,6 @@ namespace MATINFO
         private void btTout_Click(object sender, RoutedEventArgs e)
         {
             //lvGeneral.ItemsSource = viewModel.LesTouts;
-        }
-
-        private ObservableCollection<CategorieMateriel> lesCategories()
-        {
-            LesCategories = new ObservableCollection<CategorieMateriel>();
-            //LesCategories.Add(new CategorieMateriel("PC Portable"));
-            //LesCategories.Add(new CategorieMateriel("Téléphone"));
-            //LesCategories.Add(new CategorieMateriel("Tablette"));
-
-            return LesCategories;
-        }
-
-        private ObservableCollection<Materiel> lesMateriels()
-        {
-            LesMateriels = new ObservableCollection<Materiel>();
-            //LesMateriels.Add(new Materiel("ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF"));
-            //LesMateriels.Add(new Materiel("RJFKF4141454RBG", "MSI ", "F-240FJFJUS"));
-            //LesMateriels.Add(new Materiel("SKIKD4544118RFG", "CHROMEBOOK", "E-300RUDJKS"));
-
-            return LesMateriels;
-        }
-
-        private ObservableCollection<Personnel> lesPersonnels()
-        {
-            LesPersonnels = new ObservableCollection<Personnel>();
-            //LesPersonnels.Add(new Personnel("nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            //LesPersonnels.Add(new Personnel("jean.can@univ-smb.fr", "Can", "Jean"));
-            //LesPersonnels.Add(new Personnel("nick.chauve@univ-smb.fr", "Chauve", "Nick"));
-            //LesPersonnels.Add(new Personnel("bert.man@univ-smb.fr", "Man", "Man"));
-
-            return LesPersonnels;
-        }
-
-        private ObservableCollection<EstAttribue> lesAttributions()
-        {
-            LesAttributions = new ObservableCollection<EstAttribue>();
-            //LesAttributions.Add(new Attribution(new DateTime(2020,02,20),"A signé une décharge admin"));
-            //LesAttributions.Add(new Attribution(new DateTime(2090, 11, 06), "A signé une décharge admin"));
-            //LesAttributions.Add(new Attribution(new DateTime(2017, 10, 17), "A signé une décharge admin"));
-
-            return LesAttributions;
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
