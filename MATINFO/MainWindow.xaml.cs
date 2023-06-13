@@ -23,11 +23,6 @@ namespace MATINFO
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<CategorieMateriel> LesCategories { get; set; }
-        public ObservableCollection<Materiel> LesMateriels { get; set; }
-        public ObservableCollection<Personnel> LesPersonnels { get; set; }
-        public ObservableCollection<EstAttribue> LesAttributions { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
@@ -39,11 +34,6 @@ namespace MATINFO
 
             // Test de connexion à la base de données
             //MessageBox.Show("Résultat de la connexion : " + accesBD.OpenConnection());
-
-            LesCategories = CategorieMateriel.FindAll();
-            LesMateriels = Materiel.FindAll();
-            LesPersonnels = Personnel.FindAll();
-            LesAttributions = EstAttribue.FindAll();
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)

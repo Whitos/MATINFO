@@ -21,12 +21,9 @@ namespace MATINFO
     /// </summary>
     public partial class MaterielRep : Window
     {
-        public ObservableCollection<Materiel> LesMateriels { get; set; }
         public MaterielRep()
         {
             InitializeComponent();
-
-            LesMateriels = Materiel.FindAll();
 
             DataContext = this;
         }
@@ -45,7 +42,7 @@ namespace MATINFO
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    LesMateriels.Remove((Materiel)lvMateriel.SelectedItem);
+                    //LesMateriels.Remove((Materiel)lvMateriel.SelectedItem);
 
                     lvMateriel.SelectedIndex = 0;
                 }

@@ -22,12 +22,9 @@ namespace MATINFO
     /// </summary>
     public partial class CategorieRep : Window
     {
-        public ObservableCollection<CategorieMateriel> LesCategories { get; set; }
         public CategorieRep()
         {
             InitializeComponent();
-
-            LesCategories = new ObservableCollection<CategorieMateriel>();
 
             DataContext = this;
         }
@@ -47,7 +44,7 @@ namespace MATINFO
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    LesCategories.Remove((CategorieMateriel)lvCategorie.SelectedItem);
+                    //LesCategories.Remove((CategorieMateriel)lvCategorie.SelectedItem);
 
                     lvCategorie.SelectedIndex = 0;
                 }

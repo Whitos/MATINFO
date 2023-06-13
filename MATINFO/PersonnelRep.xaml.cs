@@ -21,12 +21,9 @@ namespace MATINFO
     /// </summary>
     public partial class PersonnelRep : Window
     {
-        public ObservableCollection<Personnel> LesPersonnels { get; set; }
         public PersonnelRep()
         {
             InitializeComponent();
-
-            LesPersonnels = Personnel.FindAll();
 
             DataContext = this;
         }
@@ -46,7 +43,7 @@ namespace MATINFO
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    LesPersonnels.Remove((Personnel)lvPersonnels.SelectedItem);
+                    //LesPersonnels.Remove((Personnel)lvPersonnels.SelectedItem);
 
                     lvPersonnels.SelectedIndex = 0;
                 }
