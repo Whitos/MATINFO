@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MATINFO.Metier;
 
 namespace MATINFO
 {
@@ -24,27 +25,12 @@ namespace MATINFO
         public MaterielRep()
         {
             InitializeComponent();
-            LesMateriels = new ObservableCollection<Materiel>();
-            LesMateriels.Add(new Materiel("ZNDNF5679393IFG", "APPLE MACBOOK AIR M2", "A-233RFMZEF"));
-            LesMateriels.Add(new Materiel("RJFKF4141454RBG", "MSI ", "F-240FJFJUS"));
-            LesMateriels.Add(new Materiel("SKIKD4544118RFG", "CHROMEBOOK", "E-300RUDJKS"));
+
+            LesMateriels = Materiel.FindAll();
 
             DataContext = this;
         }
-        public class Materiel
-        {
-            public string CodeBarre { get; set; }
-            public string Nom { get; set; }
-            public string ReferenceConstructeur { get; set; }
-
-            public Materiel(string codeBarre, string nom, string referenceConstructeur)
-            {
-                CodeBarre = codeBarre;
-                Nom = nom;
-                ReferenceConstructeur = referenceConstructeur;
-            }
-
-        }
+        
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             MainWindow window = new MainWindow();

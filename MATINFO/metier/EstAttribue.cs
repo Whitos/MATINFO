@@ -31,7 +31,7 @@ namespace MATINFO.Metier
             // TODO: implement
         }
    
-        public IDonnee Read()
+        public IDonnee? Read()
         {
             // TODO: implement
             return null;

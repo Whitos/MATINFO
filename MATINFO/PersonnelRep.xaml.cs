@@ -12,8 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using static MATINFO.MainWindow;
-using static MATINFO.PersonnelRep;
+using  MATINFO.Metier;
 
 namespace MATINFO
 {
@@ -26,27 +25,12 @@ namespace MATINFO
         public PersonnelRep()
         {
             InitializeComponent();
-            LesPersonnels = new ObservableCollection<Personnel>();
-            LesPersonnels.Add(new Personnel("nicolas.meger@univ-smb.fr", "Meger", "Nicolas"));
-            LesPersonnels.Add(new Personnel("jean.can@univ-smb.fr", "Can", "Jean"));
-            LesPersonnels.Add(new Personnel("nick.chauve@univ-smb.fr", "Chauve", "Nick"));
-            LesPersonnels.Add(new Personnel("bert.man@univ-smb.fr", "Man", "Man"));
+
+            LesPersonnels = Personnel.FindAll();
 
             DataContext = this;
         }
-        public class Personnel
-        {
-            public string Email { get; set; }
-            public string Nom { get; set; }
-            public string Prenom { get; set; }
 
-            public Personnel(string email, string nom, string prenom)
-            {
-                Email = email;
-                Nom = nom;
-                Prenom = prenom;
-            }
-        }
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             MainWindow window = new MainWindow();

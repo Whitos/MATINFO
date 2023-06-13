@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MATINFO.Metier;
 
 namespace MATINFO
 {
@@ -20,26 +22,14 @@ namespace MATINFO
     /// </summary>
     public partial class CategorieRep : Window
     {
-        public ObservableCollection<Categorie> LesCategories { get; set; }
+        public ObservableCollection<CategorieMateriel> LesCategories { get; set; }
         public CategorieRep()
         {
             InitializeComponent();
-            LesCategories = new ObservableCollection<Categorie>();
-            LesCategories.Add(new Categorie("PC Portable"));
-            LesCategories.Add(new Categorie("Téléphone"));
-            LesCategories.Add(new Categorie("Tablette"));
+
+            LesCategories = new ObservableCollection<CategorieMateriel>();
 
             DataContext = this;
-        }
-
-        public class Categorie
-        {
-            public string Nom { get; set; }
-
-            public Categorie(string nom)
-            {
-                Nom = nom;
-            }
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
@@ -57,7 +47,7 @@ namespace MATINFO
 
                 if (result == MessageBoxResult.Yes)
                 {
-                    LesCategories.Remove((Categorie)lvCategorie.SelectedItem);
+                    LesCategories.Remove((CategorieMateriel)lvCategorie.SelectedItem);
 
                     lvCategorie.SelectedIndex = 0;
                 }

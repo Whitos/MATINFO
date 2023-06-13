@@ -11,7 +11,7 @@ namespace MATINFO.Metier
     public interface IDonnee
     {
         void Create();
-        IDonnee Read();
+        IDonnee? Read();
         void Update();
         void Delete();
 
